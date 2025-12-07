@@ -1,9 +1,7 @@
 # 🧩 yank-path.nvim
 Minimal plugin to **copy (yank) different variants of the current file path** — inspired by Neo-tree’s `Y` menu, but without needing Neo-tree.
 
-https://raw.githubusercontent.com/ywpkwon/yank-path.nvim/main/.github/images/yank-path-demo.mov
-
-https://raw.githubusercontent.com/ywpkwon/yank-path.nvim/main/.github/images/yank-path-demo.mp4
+https://github.com/user-attachments/assets/2d119010-05da-4e6a-986d-545161e715f4
 
 This plugin gives you a simple picker (using `vim.ui.select`, so telescope/dressing/etc. improve it automatically) to copy:
 
