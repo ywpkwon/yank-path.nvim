@@ -58,11 +58,7 @@ use {
 
 ### Default keymap
 
-Normal mode:
-
-```
-Y
-```
+Default keymap in normal mode: `Y`
 
 ### Command
 
@@ -85,20 +81,28 @@ require("yank_path").setup({
 })
 ```
 
-## 🗂️ File Structure
+## 🙏 Acknowledgements
 
-```
-yank-path.nvim/
-├─ lua/
-│  └─ yank_path/
-│     └─ init.lua
-└─ plugin/
-   └─ yank_path.lua
-```
+This plugin was inspired by great ideas from the following projects:
 
-## 🤝 Contributing
+- **[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)**  
+  The `Y` yank-path popup in Neo-tree motivated this plugin’s core behavior.
 
-PRs welcome.
+- **[oil.nvim](https://github.com/stevearc/oil.nvim)**  
+  A fantastic filesystem UI for Neovim.  
+  This plugin includes built-in compatibility to yank paths directly from Oil buffers.
+
+Huge thanks to the authors and contributors of these projects for their amazing work.
+
+## 📝 Note from the Author
+
+I’m not a typical Neovim plugin developer — this plugin started as a small
+personal tool to replicate path-yanking behavior I liked from Neo-tree, but
+without needing the full file explorer.
+
+I'm still very new to writing Neovim plugins, and I may not always be able to
+actively expand or maintain the project. That said, I’m happy if others find it
+useful, and contributions or suggestions are always welcome.
 
 ## 📜 License
 
