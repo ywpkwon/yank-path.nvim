@@ -105,6 +105,10 @@ function M.yank_file_path()
   )
 end
 
-M.setup = function(_) end
+M.setup = function(opts)
+  opts = opts or {}
+  -- expose config via g:var so plugin initialization file can read it
+  vim.g.yank_path_enable_default_mapping = opts.default_mapping ~= false
+end
 
 return M

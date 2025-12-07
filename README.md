@@ -1,5 +1,5 @@
 # 🧩 yank-path.nvim
-Minimal plugin to **copy (yank) different variants of the current file path** — inspired by Neo-tree’s `Y` menu, but without needing Neo-tree.
+Minimal plugin to **copy (yank) different variants of the current file path** - inspired by Neo-tree's `Y` menu, but without needing Neo-tree.
 
 https://github.com/user-attachments/assets/2d119010-05da-4e6a-986d-545161e715f4
 
@@ -54,29 +54,25 @@ use {
 
 ## 🚀 Usage
 
-### Default keymap
+- Default keymap in normal mode: `Y`
+- Command: `:YankPath`
+- Programmatically: `require("yank_path").yank_file_path()`
 
-Default keymap in normal mode: `Y`
+## 🔧 Configuration
 
-### Command
-
-```
-:YankPath
-```
-
-### Programmatically
-
-```lua
-require("yank_path").yank_file_path()
-```
-
-## 🔧 Configuration (optional)
+`yank-path.nvim` provides a small `setup()` function for optional settings.
+By default, the plugin maps `Y`. If you prefer to define your own mapping (or no mapping at all), disable it:
 
 ```lua
 require("yank_path").setup({
-  -- future: register = "+",
-  -- future: mapping = "Y",
+  default_mapping = false,
 })
+```
+
+Then set your own keymap:
+
+```lua
+vim.keymap.set("n", "<leader>yp", "<cmd>YankPath<CR>", { desc = "Yank file path" })
 ```
 
 ## 🙏 Acknowledgements
@@ -84,7 +80,7 @@ require("yank_path").setup({
 This plugin was inspired by great ideas from the following projects:
 
 - **[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)**  
-  The `Y` yank-path popup in Neo-tree motivated this plugin’s core behavior.
+  The `Y` yank-path popup in Neo-tree motivated this plugin's core behavior.
 
 - **[oil.nvim](https://github.com/stevearc/oil.nvim)**  
   A fantastic filesystem UI for Neovim.  
@@ -94,12 +90,12 @@ Huge thanks to the authors and contributors of these projects for their amazing 
 
 ## 📝 Note from the Author
 
-I’m not a typical Neovim plugin developer — this plugin started as a small
+I'm not a typical Neovim plugin developer. This plugin started as a small
 personal tool to replicate path-yanking behavior I liked from Neo-tree, but
 without needing the full file explorer.
 
 I'm still very new to writing Neovim plugins, and I may not always be able to
-actively expand or maintain the project. That said, I’m happy if others find it
+actively expand or maintain the project. That said, I'm happy if others find it
 useful, and contributions or suggestions are always welcome.
 
 ## 📜 License
