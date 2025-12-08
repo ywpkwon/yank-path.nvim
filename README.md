@@ -25,7 +25,7 @@ This plugin gives you a simple picker (using `vim.ui.select`, so telescope/dress
 - Writes to both:
   - `+` system clipboard
   - `"` unnamed register
-- Comes with default keymap (`Y`) and `:YankPath` command
+- Comes with default keymap (`Y`) and `:YankPath` command (and more non-UI direct commands)
 - No dependencies, tiny, pure Lua
 
 ## 📦 Installation
