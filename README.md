@@ -54,13 +54,56 @@ use {
 
 ## 🚀 Usage
 
-- Default keymap in normal mode: `Y`
-- Command: `:YankPath`
-- Programmatically: `require("yank-path").yank_file_path()`
+In addition to the main interactive picker (`:YankPath`), the plugin provides **direct, non-UI yank commands**.  
+These commands yank a specific file-path variant immediately (no menu), which is perfect for users who prefer to create their own keymaps.
+
+### 📜 Available Commands
+
+| Command               | Description                                 |
+|----------------------|---------------------------------------------|
+| `:YankPath`          | UI picker (interactive selection)            |
+| `:YankPathBase`      | Yank basename (filename without extension)   |
+| `:YankPathExtension` | Yank file extension                          |
+| `:YankPathFilename`  | Yank filename (with extension)               |
+| `:YankPathFull`      | Yank full absolute path                      |
+| `:YankPathCwd`       | Yank path relative to current working dir    |
+| `:YankPathHome`      | Yank path with `$HOME` replaced by `~`       |
+| `:YankPathUri`       | Yank file URI (`file://...`)                 |
+
+All commands work in:
+
+- regular file buffers  
+- Oil.nvim buffers (if `use_oil = true`)  
+- any custom source added via `register_provider()`  
+
+<details>
+<summary><strong>Click to expand example keymaps</strong></summary>
+
+### 🎹 Example Keymaps (optional)
+
+**No default keymaps are provided** for these direct commands other than the `:YankPath` (`Y`).  
+Here are some example mappings you can add to your own config:
+
+```lua
+vim.keymap.set("n", "<leader>ypb", "<cmd>YankPathBase<CR>",      { desc = "Yank basename" })
+vim.keymap.set("n", "<leader>ype", "<cmd>YankPathExtension<CR>", { desc = "Yank extension" })
+vim.keymap.set("n", "<leader>ypf", "<cmd>YankPathFilename<CR>",  { desc = "Yank filename" })
+vim.keymap.set("n", "<leader>ypp", "<cmd>YankPathFull<CR>",      { desc = "Yank full path" })
+vim.keymap.set("n", "<leader>ypc", "<cmd>YankPathCwd<CR>",       { desc = "Yank CWD path" })
+vim.keymap.set("n", "<leader>yph", "<cmd>YankPathHome<CR>",      { desc = "Yank HOME path" })
+vim.keymap.set("n", "<leader>ypu", "<cmd>YankPathUri<CR>",       { desc = "Yank file URI" })
+```
+</details>
+
+### 🧭 Tip: Works Great with Oil.nvim
+
+If you’re inside an Oil.nvim directory view, the yank commands operate on the **file under cursor**, even if it’s not opened in a buffer.  
+This makes it very convenient to copy any file’s path without leaving the explorer.
+
 
 ## 🔧 Configuration
 
-`yank-path.nvim` is configured via the `setup()` function.
+`yank-path.nvim` is configured via the `setup()` function where all fields are optional.
 
 ```lua
 require("yank-path").setup({
@@ -69,8 +112,6 @@ require("yank-path").setup({
   use_oil = true,   -- enable built-in Oil.nvim integration
 })
 ```
-
-All fields are optional.
 
 <details>
 <summary><strong>Click to expand configuration options</strong></summary>
