@@ -144,12 +144,6 @@ Provider priority:
 
 </details>
 
-Then set your own keymap:
-
-```lua
-vim.keymap.set("n", "<leader>yp", "<cmd>YankPath<CR>", { desc = "Yank file path" })
-```
-
 ## 🙏 Acknowledgements
 
 This plugin was inspired by great ideas from the following projects:
