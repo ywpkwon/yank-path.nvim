@@ -1,6 +1,10 @@
 -- lua/yank_path/init.lua
 local M = {}
 
+local config = {
+  prompt = "Yank which path?",
+}
+
 local function escape_pattern(text)
   return text:gsub("([^%w])", "%%%1")
 end
@@ -88,7 +92,7 @@ function M.yank_file_path()
   vim.ui.select(
     entries,
     {
-      prompt = "Yank which path?",
+      prompt = config.prompt,
       format_item = function(item)
         return item.label .. ": " .. item.value
       end,
@@ -107,8 +111,11 @@ end
 
 M.setup = function(opts)
   opts = opts or {}
+  config.prompt = opts.prompt or config.prompt
+  config.default_mapping = opts.default_mapping ~= false
+
   -- expose config via g:var so plugin initialization file can read it
-  vim.g.yank_path_enable_default_mapping = opts.default_mapping ~= false
+  vim.g.yank_path_enable_default_mapping = config.default_mapping ~= false
 end
 
 return M
