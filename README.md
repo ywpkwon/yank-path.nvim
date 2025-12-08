@@ -60,14 +60,89 @@ use {
 
 ## 🔧 Configuration
 
-`yank-path.nvim` provides a small `setup()` function for optional settings.
-By default, the plugin maps `Y`. If you prefer to define your own mapping (or no mapping at all), disable it:
+`yank-path.nvim` is configured via the `setup()` function.
+
+```lua
+require("yank-path").setup({
+  prompt = "Yank which path?",
+  default_mapping = true,
+  use_oil = true,   -- enable built-in Oil.nvim integration
+})
+```
+
+All fields are optional.
+
+<details>
+<summary><strong>Click to expand configuration options</strong></summary>
+
+### `prompt`
+
+Customize the text at the top of the picker window:
+
+```lua
+require("yank-path").setup({
+  prompt = "copy",
+})
+```
+
+---
+
+### `default_mapping`
+
+By default, `yank-path.nvim` binds `Y` → `:YankPath` in the Normal mode.
+If you prefer a custom keymap (or no keymap at all), you can disable the default mapping:
 
 ```lua
 require("yank-path").setup({
   default_mapping = false,
 })
 ```
+
+Then you can define your own:
+
+```lua
+vim.keymap.set("n", "<leader>yp", "<cmd>YankPath<CR>", { desc = "Yank file path" })
+```
+
+---
+
+### `use_oil` — Built-in Oil.nvim support
+
+Oil.nvim works automatically. For some reasons, to disable the integration:
+
+```lua
+require("yank-path").setup({
+  use_oil = false,
+})
+```
+
+---
+
+### `register_provider()` — Custom file explorer integrations
+
+`yank-path.nvim` supports integration with any file explorer (Snacks, neo-tree, custom UIs) via small user-provided hooks.
+
+```lua
+require("yank-path").register_provider(function()
+  local ok, snacks = pcall(require, "snacks")
+  if not ok then return nil end
+
+  -- PSEUDOCODE (depends on Snacks API):
+  -- local entry = snacks.explorer.get_cursor_entry()
+  -- if entry and entry.path then
+  --   return entry.path
+  -- end
+
+  return nil
+end)
+```
+
+Provider priority:
+1. Built-in Oil provider (if `use_oil = true`)  
+2. User-registered providers  
+3. Fallback: current buffer path  
+
+</details>
 
 Then set your own keymap:
 
