@@ -3,6 +3,7 @@ local M = {}
 
 local config = {
   prompt = "Yank which path?",
+  default_mapping = true,
 }
 
 local function escape_pattern(text)
@@ -111,11 +112,24 @@ end
 
 M.setup = function(opts)
   opts = opts or {}
-  config.prompt = opts.prompt or config.prompt
-  config.default_mapping = opts.default_mapping ~= false
 
-  -- expose config via g:var so plugin initialization file can read it
-  vim.g.yank_path_enable_default_mapping = config.default_mapping ~= false
+  if opts.prompt ~= nil then
+    config.prompt = opts.prompt
+  end
+
+  if opts.default_mapping ~= nil then
+    config.default_mapping = opts.default_mapping
+  end
+
+  -- Only create mapping if enabled
+  if config.default_mapping then
+    vim.keymap.set(
+      "n",
+      "Y",
+      "<cmd>YankPath<CR>",
+      { desc = "Yank file path variant", silent = true }
+    )
+  end
 end
 
 return M
