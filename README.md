@@ -77,13 +77,15 @@ All fields are optional.
 
 ### `prompt`
 
-Customize the text at the top of the picker window:
+Customize the text at the top of the picker window: (for example, `"copy"` or `""`)
 
 ```lua
 require("yank-path").setup({
   prompt = "copy", -- or "" for a clean look
 })
 ```
+<img width="733" height="70" alt="prompt-copy" src="https://github.com/user-attachments/assets/252636fa-ca2d-469f-9813-655c231e6f42" />
+<img width="733" height="70" alt="prompt-empty" src="https://github.com/user-attachments/assets/aa384243-0875-4806-8fc6-d711c3d38fe0" />
 
 ---
 
