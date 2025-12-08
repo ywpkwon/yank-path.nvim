@@ -81,11 +81,10 @@ All commands work in:
 
 ### 🎹 Example Keymaps (optional)
 
-No default keymaps are provided for these direct commands.  
+**No default keymaps are provided** for these direct commands other than the `:YankPath` (`Y`).  
 Here are some example mappings you can add to your own config:
 
 ```lua
--- example: all under <leader>yp (Yank Path)
 vim.keymap.set("n", "<leader>ypb", "<cmd>YankPathBase<CR>",      { desc = "Yank basename" })
 vim.keymap.set("n", "<leader>ype", "<cmd>YankPathExtension<CR>", { desc = "Yank extension" })
 vim.keymap.set("n", "<leader>ypf", "<cmd>YankPathFilename<CR>",  { desc = "Yank filename" })
@@ -94,17 +93,17 @@ vim.keymap.set("n", "<leader>ypc", "<cmd>YankPathCwd<CR>",       { desc = "Yank 
 vim.keymap.set("n", "<leader>yph", "<cmd>YankPathHome<CR>",      { desc = "Yank HOME path" })
 vim.keymap.set("n", "<leader>ypu", "<cmd>YankPathUri<CR>",       { desc = "Yank file URI" })
 ```
+</details>
 
 ### 🧭 Tip: Works Great with Oil.nvim
 
 If you’re inside an Oil.nvim directory view, the yank commands operate on the **file under cursor**, even if it’s not opened in a buffer.  
 This makes it very convenient to copy any file’s path without leaving the explorer.
 
-</details>
 
 ## 🔧 Configuration
 
-`yank-path.nvim` is configured via the `setup()` function.
+`yank-path.nvim` is configured via the `setup()` function where all fields are optional.
 
 ```lua
 require("yank-path").setup({
@@ -113,8 +112,6 @@ require("yank-path").setup({
   use_oil = true,   -- enable built-in Oil.nvim integration
 })
 ```
-
-All fields are optional.
 
 <details>
 <summary><strong>Click to expand configuration options</strong></summary>
