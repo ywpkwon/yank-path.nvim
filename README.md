@@ -81,7 +81,7 @@ Customize the text at the top of the picker window:
 
 ```lua
 require("yank-path").setup({
-  prompt = "copy",
+  prompt = "copy", -- or "" for a clean look
 })
 ```
 
