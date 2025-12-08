@@ -36,7 +36,7 @@ This plugin gives you a simple picker (using `vim.ui.select`, so telescope/dress
 {
   "ywpkwon/yank-path.nvim",
   config = function()
-    require("yank_path").setup()
+    require("yank-path").setup()
   end,
 }
 ```
@@ -47,7 +47,7 @@ This plugin gives you a simple picker (using `vim.ui.select`, so telescope/dress
 use {
   "ywpkwon/yank-path.nvim",
   config = function()
-    require("yank_path").setup()
+    require("yank-path").setup()
   end,
 }
 ```
@@ -56,7 +56,7 @@ use {
 
 - Default keymap in normal mode: `Y`
 - Command: `:YankPath`
-- Programmatically: `require("yank_path").yank_file_path()`
+- Programmatically: `require("yank-path").yank_file_path()`
 
 ## 🔧 Configuration
 
@@ -64,7 +64,7 @@ use {
 By default, the plugin maps `Y`. If you prefer to define your own mapping (or no mapping at all), disable it:
 
 ```lua
-require("yank_path").setup({
+require("yank-path").setup({
   default_mapping = false,
 })
 ```
