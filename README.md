@@ -202,14 +202,25 @@ Huge thanks to the authors and contributors of these projects for their amazing 
 
 ## 📝 Note from the Author
 
-I'm not a typical Neovim plugin developer. This plugin started as a small
-personal tool to replicate path-yanking behavior I liked from Neo-tree, but
-without needing the full file explorer.
+This plugin started as a small personal tool to replicate the path-yanking
+behavior I liked from Neo-tree, but without requiring a full file explorer.
 
-I'm still very new to writing Neovim plugins, and I may not always be able to
-actively expand or maintain the project. That said, I'm happy if others find it
-useful, and contributions or suggestions are always welcome.
+I'm still relatively new to Neovim plugin development, so while I may not
+always be able to expand or maintain the project actively, I'm happy if others
+find it useful. Suggestions and contributions are always welcome!
+
+## 🤝 Contributing
+
+Bug reports, improvements, and PRs are welcome!
+If you'd like to contribute support for another file explorer, please use
+`register_provider()` (see documentation above).
 
 ## 📜 License
 
 MIT
+
+---
+
+## ⭐️ Supporting the Project
+
+If this little plugin made your workflow happier, feel free to ⭐️ the repo — it means a lot :)
