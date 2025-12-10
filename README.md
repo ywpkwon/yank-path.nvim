@@ -54,10 +54,17 @@ use {
 
 ## 🚀 Usage
 
-In addition to the main interactive picker (`:YankPath`), the plugin provides **direct, non-UI yank commands**.  
-These commands yank a specific file-path variant immediately (no menu), which is perfect for users who prefer to create their own keymaps.
+🔹 The primary way to use this plugin is through the interactive picker:
 
-### 📜 Available Commands
+- Keymap: `Y` (unless disabled, see below)
+- Command: `:YankPath`
+
+This opens a menu (powered by vim.ui.select) where you can choose which path variant to yank.
+
+🔹 Direct, Non-UI Yank Commands
+
+In addition to the picker, the plugin also provides non-interactive commands that immediately yank a specific path variant without showing a menu.
+These are perfect if you want to create custom keybindings.
 
 | Command               | Description                                 |
 |----------------------|---------------------------------------------|
@@ -70,7 +77,7 @@ These commands yank a specific file-path variant immediately (no menu), which is
 | `:YankPathHome`      | Yank path with `$HOME` replaced by `~`       |
 | `:YankPathUri`       | Yank file URI (`file://...`)                 |
 
-All commands work in:
+All commands (or keybindings) work in:
 
 - regular file buffers  
 - Oil.nvim buffers (if `use_oil = true`)  
